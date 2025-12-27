@@ -10,9 +10,11 @@ const withPWA = require('next-pwa')({
 const nextConfig: NextConfig = {
   output: 'export',
   basePath: '/generic-resume-website',
+  assetPrefix: '/generic-resume-website/',
   images: {
     unoptimized: true,
   },
 };
 
-export default withPWA(nextConfig);
+// export default withPWA(nextConfig);
+export default nextConfig;
