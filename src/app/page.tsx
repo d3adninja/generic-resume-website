@@ -52,17 +52,17 @@ export default function Home() {
       </div>
 
 
-      <div className={css({ maxW: "6xl", mx: "auto", px: 6, pt: 32, pb: 20 })}>
+      <div className={css({ maxW: "6xl", mx: "auto", px: 6, pt: { base: 24, lg: 32 }, pb: 20 })}>
         <motion.div
           variants={container}
           initial="hidden"
           animate="show"
-          className={css({ display: "grid", gridTemplateColumns: { base: "1", lg: "12" }, gap: 12 })}
+          className={css({ display: "grid", gridTemplateColumns: { base: "1", lg: "12" }, gap: { base: 8, lg: 12 } })}
         >
           {/* Left Column: Hero & Info */}
-          <div className={css({ gridColumn: { lg: "span 8" }, spaceY: 12 })}>
+          <div className={css({ gridColumn: { lg: "span 8" }, spaceY: { base: 8, md: 12 } })}>
             <motion.section variants={item} className={css({ spaceY: 6 })}>
-              <h2 className={css({ fontSize: { base: "5xl", lg: "7xl" }, fontWeight: "bold", lineHeight: "tight" })}>
+              <h2 className={css({ fontSize: { base: "4xl", md: "5xl", lg: "7xl" }, fontWeight: "bold", lineHeight: "tight" })}>
                 Building <span className={textGradient}>digital experiences</span> that matter.
               </h2>
               <p className={css({ fontSize: "lg", color: "zinc.400", maxW: "2xl", lineHeight: "relaxed" })}>

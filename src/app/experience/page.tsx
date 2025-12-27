@@ -23,22 +23,45 @@ export default function Experience() {
             </motion.h1>
 
             <div className={vstack({ gap: 12, maxW: "3xl", w: "full", pos: "relative", mb: 32 })}>
-                <div className={css({ pos: "absolute", left: "50%", top: 0, bottom: 0, w: "2px", bg: "linear-gradient(to bottom, cyan, purple, pink)", transform: "translateX(-50%)", zIndex: 0 })} />
+                {/* Center Line - Hidden on small screens */}
+                <div className={css({
+                    pos: "absolute",
+                    left: "50%",
+                    top: 0,
+                    bottom: 0,
+                    w: "2px",
+                    bg: "linear-gradient(to bottom, cyan, purple, pink)",
+                    transform: "translateX(-50%)",
+                    zIndex: 0,
+                    display: { base: "none", md: "block" }
+                })} />
 
                 {jobs.map((job, i) => (
                     <motion.div
                         key={i}
-                        initial={{ opacity: 0, x: i % 2 === 0 ? -100 : 100 }}
-                        whileInView={{ opacity: 1, x: 0 }}
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, x: 0, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ type: "spring", bounce: 0.4 }}
-                        className={css({ w: "full", display: "flex", justifyContent: i % 2 === 0 ? "flex-start" : "flex-end", zIndex: 10 })}
+                        className={css({
+                            w: "full",
+                            display: "flex",
+                            justifyContent: { base: "center", md: i % 2 === 0 ? "flex-start" : "flex-end" },
+                            zIndex: 10
+                        })}
                     >
-                        <div className={css({ w: "45%" })}>
+                        <div className={css({ w: { base: "100%", md: "45%" } })}>
                             <TiltCard>
-                                <div className={css({ bg: "black", border: "1px solid", borderColor: job.color, p: 6, rounded: "2xl", boxShadow: `0 0 15px ${job.color}` })}>
+                                <div className={css({
+                                    bg: "black",
+                                    border: "1px solid",
+                                    borderColor: job.color,
+                                    p: { base: 5, md: 6 },
+                                    rounded: "2xl",
+                                    boxShadow: `0 0 15px ${job.color}`
+                                })}>
                                     <span className={css({ color: job.color, fontSize: "xs", fontWeight: "bold", textTransform: "uppercase" })}>{job.year}</span>
-                                    <h3 className={css({ fontSize: "2xl", fontWeight: "bold", mt: 1 })}>{job.role}</h3>
+                                    <h3 className={css({ fontSize: { base: "xl", md: "2xl" }, fontWeight: "bold", mt: 1 })}>{job.role}</h3>
                                     <h4 className={css({ fontSize: "lg", color: "zinc.400" })}>{job.company}</h4>
                                     <p className={css({ mt: 4, fontSize: "sm", color: "zinc.500" })}>{job.desc}</p>
                                 </div>

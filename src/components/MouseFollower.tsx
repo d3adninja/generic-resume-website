@@ -13,19 +13,24 @@ export default function MouseFollower() {
     // Hydration fix: Only render on client to avoid server mismatch
     const [isMounted, setIsMounted] = useState(false);
 
+    const [isTouchDevice, setIsTouchDevice] = useState(false);
+
     const springConfig = { damping: 25, stiffness: 400, mass: 0.5 };
     const springX = useSpring(mouseX, springConfig);
     const springY = useSpring(mouseY, springConfig);
 
     useEffect(() => {
         setIsMounted(true);
+        if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
+            setIsTouchDevice(true);
+        }
 
         const handleMouseMove = (e: MouseEvent) => {
+            if ('ontouchstart' in window || navigator.maxTouchPoints > 0) return;
             mouseX.set(e.clientX);
             mouseY.set(e.clientY);
 
             const target = e.target as HTMLElement;
-            // Simple heuristic for interactive elements
             if (target.tagName.toLowerCase() === 'a' ||
                 target.tagName.toLowerCase() === 'button' ||
                 target.onclick ||
@@ -51,7 +56,7 @@ export default function MouseFollower() {
         };
     }, []);
 
-    if (!isMounted) return null;
+    if (!isMounted || isTouchDevice) return null;
 
     return (
         <motion.div

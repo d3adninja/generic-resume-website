@@ -21,7 +21,7 @@ export default function Projects() {
             <motion.h1
                 initial={{ y: -50, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
-                className={css({ fontSize: "6xl", fontWeight: "black", textAlign: "center", mb: 20, color: "transparent", backgroundClip: "text", backgroundImage: "linear-gradient(to right, cyan, purple, pink)" })}
+                className={css({ fontSize: { base: "4xl", md: "6xl" }, fontWeight: "black", textAlign: "center", mb: { base: 10, md: 20 }, color: "transparent", backgroundClip: "text", backgroundImage: "linear-gradient(to right, cyan, purple, pink)" })}
             >
                 PROJECTS
             </motion.h1>

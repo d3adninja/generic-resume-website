@@ -39,7 +39,7 @@ export default function Navbar() {
                         Portfolio
                     </motion.h1>
                 </Link>
-                <div className={flex({ gap: 6, fontSize: "sm", fontWeight: "medium", color: "zinc.400" })}>
+                <div className={flex({ gap: { base: 3, md: 6 }, fontSize: { base: "xs", md: "sm" }, fontWeight: "medium", color: "zinc.400" })}>
                     {[
                         { name: "Home", path: "/" },
                         { name: "Projects", path: "/projects" },
@@ -58,7 +58,17 @@ export default function Navbar() {
                         </Link>
                     ))}
 
-                    <Link href="/contact" className={css({ bg: "white/10", _hover: { bg: "white/20" }, color: "white", px: 4, py: 1, rounded: "full", transition: "all", border: "1px solid rgba(255,255,255,0.1)" })}>
+                    <Link href="/contact" className={css({
+                        bg: "white/10",
+                        _hover: { bg: "white/20" },
+                        color: "white",
+                        px: { base: 3, md: 4 },
+                        py: 1,
+                        rounded: "full",
+                        transition: "all",
+                        border: "1px solid rgba(255,255,255,0.1)",
+                        fontSize: { base: "xs", md: "sm" }
+                    })}>
                         Contact
                     </Link>
                 </div>
