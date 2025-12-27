@@ -1,0 +1,2 @@
+:HL["/generic-resume-website/_next/static/css/ce6f296ea262a0c3.css","style"]
+0:{"buildId":"h8dTohDUuifLVqC5X0-Ul","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"experience","paramType":null,"paramKey":"experience","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
