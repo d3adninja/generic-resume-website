@@ -6,6 +6,8 @@ import Footer from "@/components/Footer";
 import PageTransition from "@/components/PageTransition";
 import MouseFollower from "@/components/MouseFollower";
 
+import ServiceWorkerKiller from "@/components/ServiceWorkerKiller";
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -37,6 +39,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
+        <ServiceWorkerKiller />
         <MouseFollower />
         <Navbar />
         <PageTransition>
